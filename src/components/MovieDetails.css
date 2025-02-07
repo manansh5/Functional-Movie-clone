@@ -1,0 +1,20 @@
+.movie-details-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .movie-details-container img {
+    width: 50%;
+    border-radius: 10px;
+  }
+  
+  .movie-details-container p {
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 1.2rem;
+  }
+  
+  .movie-details-container button {
+    margin-top: 10px;
+  }
+  
