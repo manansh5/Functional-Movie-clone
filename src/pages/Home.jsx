@@ -44,7 +44,6 @@ const Home = ({ searchQuery }) => {
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
-  // Infinite Scroll - Detect when user reaches bottom
   useEffect(() => {
     const handleScroll = () => {
       if (
@@ -99,7 +98,7 @@ const Home = ({ searchQuery }) => {
         )}
       </Row>
 
-      {/* Loading Indicator */}
+     
       {loading && <h5 className="text-center my-4">Loading more movies...</h5>}
 
 

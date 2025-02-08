@@ -14,7 +14,7 @@ const Details = () => {
     const fetchMovie = async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${id}?api_key=d2d8f0d8dce35688c0ac294db163e10b`
+          `https://api.themoviedb.org/3/movie/${id}?api_key=d2d8f0d8dce35688c0ac294db163e10b$include_adult=false`
         );
         if (!response.ok) throw new Error("Failed to fetch");
         const data = await response.json();
