@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import { Card, Container, Row, Col } from "react-bootstrap";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
+
 const Home = ({ searchQuery }) => {
   const [movies, setMovies] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+
+  const restrictedKeywords = ["porn", "xxx", "adult", "erotic", "nude", "sex", "explicit", "18+"]; 
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -18,7 +21,14 @@ const Home = ({ searchQuery }) => {
         );
         if (!response.ok) throw new Error("Failed to fetch");
         const data = await response.json();
-        setMovies((prevMovies) => [...prevMovies, ...data.results]);
+
+        const filteredResults = data.results.filter(
+          (movie) =>
+            !restrictedKeywords.some((word) => movie.title.toLowerCase().includes(word)) &&
+            movie.poster_path !== null
+        );
+
+        setMovies((prevMovies) => [...prevMovies, ...filteredResults]);
       } catch (error) {
         console.error("Error fetching movies:", error);
       } finally {
@@ -98,9 +108,7 @@ const Home = ({ searchQuery }) => {
         )}
       </Row>
 
-     
       {loading && <h5 className="text-center my-4">Loading more movies...</h5>}
-
 
       <style>
         {`

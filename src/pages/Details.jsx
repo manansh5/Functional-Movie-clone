@@ -4,7 +4,7 @@ import { Button, Container, Row, Col } from "react-bootstrap";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const Details = () => {
-  const { id } = useParams(); // Fix the param name to match the route
+  const { id } = useParams(); 
   const [movie, setMovie] = useState(null);
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem("favorites")) || []
@@ -14,7 +14,7 @@ const Details = () => {
     const fetchMovie = async () => {
       try {
         const response = await fetch(
-          `https://api.themoviedb.org/3/movie/${id}?api_key=d2d8f0d8dce35688c0ac294db163e10b$include_adult=false`
+          `https://api.themoviedb.org/3/movie/${id}?api_key=d2d8f0d8dce35688c0ac294db163e10b`
         );
         if (!response.ok) throw new Error("Failed to fetch");
         const data = await response.json();
