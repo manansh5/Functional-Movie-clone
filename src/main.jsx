@@ -1,11 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom/client"; // Make sure it's "react-dom/client"
+import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
-import "bootstrap/dist/css/bootstrap.min.css";
+import App from "./App.jsx";
+import "bootstrap/dist/css/bootstrap.min.css"; // Ensure this is present
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
+  <BrowserRouter basename="/Functional-Movie-clone"> {/* ✅ Set the basename */}
     <App />
   </BrowserRouter>
 );

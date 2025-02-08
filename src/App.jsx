@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import CustomNavbar from "./components/Navbar";
-import Home from "./pages/Home";
-import MovieDetails from "./components/MovieDetails";
-import Favorites from "./pages/Favorites";
+import { Routes, Route } from "react-router-dom"; // ❌ Removed extra BrowserRouter
+import Home from "./pages/Home.jsx";
+import Details from "./pages/Details.jsx";
+import Favorites from "./pages/Favorites.jsx";
+import CustomNavbar from "./components/Navbar.jsx";
 
-const App = () => {
+function App() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
@@ -13,11 +13,11 @@ const App = () => {
       <CustomNavbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <Routes>
         <Route path="/" element={<Home searchQuery={searchQuery} />} />
-        <Route path="/details/:id" element={<MovieDetails />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/details/:id" element={<Details />} />
+        <Route path="/favorites" element={<Favorites searchQuery={searchQuery} />} />
       </Routes>
     </>
   );
-};
+}
 
 export default App;
